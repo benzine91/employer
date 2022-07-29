@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Employer index{% endblock %}
+
+
+{% block body %}
+    <div class="bg-white p-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-11">
+                    <h1 class="h2">Employer index</h1>
+                </div>
+                <div class="col-1">
+                    <a href="{{ path('app_employer_new') }}" type="button" class=" btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ajouter un employé"><i class="bi bi-plus-lg"></i></a>
+                </div>
+            </div>   
+        </div>
+    </div>
+    <div class="m-3 p-3"></div>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Prenom</th>
+                            <th>Nom</th>
+                            <th>Telephone</th>
+                            <th>Email</th>
+                            <th>Adresse</th>
+                            <th>Poste</th>
+                            <th>Salaire</th>
+                            <th>DateDeNaissance</th>
+                            <th>actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for employer in employers %}
+                        <tr>
+                            <td>{{ employer.id }}</td>
+                            <td>{{ employer.prenom }}</td>
+                            <td>{{ employer.nom }}</td>
+                            <td>{{ employer.telephone }}</td>
+                            <td>{{ employer.email }}</td>
+                            <td>{{ employer.adresse }}</td>
+                            <td>{{ employer.poste }}</td>
+                            <td>{{ employer.salaire }}</td>
+                            <td>{{ employer.dateDeNaissance ? employer.dateDeNaissance|date('Y-m-d') : '' }}</td>
+                            <td>
+                                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                                <div class="btn-group" role="group">
+                                    <button id="btnGroupDrop3" type="button" class="btn btn-outline-primary" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi bi-gear"></i></button>
+                                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop3" style="">
+                                    <a class="dropdown-item" href="{{ path('app_employer_show', {'id': employer.id}) }}">Afficher</a>
+                                    <a class="dropdown-item" href="{{ path('app_employer_edit', {'id': employer.id}) }}">Editer</a>
+                                    </div>
+                                </div>
+                                </div>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="10">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                {{ knp_pagination_render(employers) }}
+            </div>
+          
+
+        </div>
+    </div>
+{% endblock %}
