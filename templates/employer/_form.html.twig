@@ -48,7 +48,7 @@
                 <div class="form-group py-2">
                     <div>{{ form_label(form.dateDeNaissance) }}</div>
                     <div class="text-danger">{{ form_errors(form.dateDeNaissance) }}</div>
-                    <div>{{ form.dateDeNaissance|date("d/m/Y") }}</div>
+                    <div>{{ form_widget(form.dateDeNaissance) }}</div>
                 </div>              
             </div>
             <div class="card-footer text-muted d-flex justify-content-end bg-white ">
