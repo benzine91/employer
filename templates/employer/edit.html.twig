@@ -3,11 +3,28 @@
 {% block title %}Edit Employer{% endblock %}
 
 {% block body %}
-    <h1>Edit Employer</h1>
+
+
+    <div class="bg-white p-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-10">
+                    <h1 class="h2">Employer</h1>
+                </div>
+                <div class="col-2 row justify-content-end">
+                    <div class="col-4">
+                        <a href="{{ path('app_employer_index') }}" type="button" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Allée a la list des employées"><i class="bi bi-list-ul"></i></i></a>
+                    </div> 
+                    {{ include('employer/_delete_form.html.twig') }}
+                </div>
+            </div>   
+        </div>
+    </div>
+
+
 
     {{ include('employer/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('app_employer_index') }}">back to list</a>
 
-    {{ include('employer/_delete_form.html.twig') }}
+
 {% endblock %}

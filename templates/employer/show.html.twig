@@ -3,52 +3,90 @@
 {% block title %}Employer{% endblock %}
 
 {% block body %}
-    <h1>Employer</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ employer.id }}</td>
-            </tr>
-            <tr>
-                <th>Prenom</th>
-                <td>{{ employer.prenom }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{ employer.nom }}</td>
-            </tr>
-            <tr>
-                <th>Telephone</th>
-                <td>{{ employer.telephone }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ employer.email }}</td>
-            </tr>
-            <tr>
-                <th>Adresse</th>
-                <td>{{ employer.adresse }}</td>
-            </tr>
-            <tr>
-                <th>Poste</th>
-                <td>{{ employer.poste }}</td>
-            </tr>
-            <tr>
-                <th>Salaire</th>
-                <td>{{ employer.salaire }}</td>
-            </tr>
-            <tr>
-                <th>DateDeNaissance</th>
-                <td>{{ employer.dateDeNaissance ? employer.dateDeNaissance|date('Y-m-d') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="bg-white p-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-10">
+                    <h1 class="h2">Employer</h1>
+                </div>
+                <div class="col-2 row justify-content-end">
+                    <div class="col-4">
+                        <a href="{{ path('app_employer_index') }}" type="button" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Allée a la list des employées"><i class="bi bi-list-ul"></i></i></a>
+                    </div> 
+                    <div class="col-4">
+                        <a href="{{ path('app_employer_edit', {'id': employer.id}) }}" type="button" class="btn btn-outline-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Editer l'employé"><i class="bi bi-pencil-fill"></i></a>
+                    </div>
+                    {{ include('employer/_delete_form.html.twig') }}
+                </div>
+            </div>   
+        </div>
+    </div>
+    <div class="container">
+        <div class="m-3 p-3"></div>
+            <div class="card">
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col fw-bold">Id</div>
+                            <div class="col">{{ employer.id }}</div>
+                        </div>   
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col fw-bold">Prenom</div>
+                            <div class="col">{{ employer.prenom }}</div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col fw-bold">Nom</div>
+                            <div class="col">{{ employer.nom }}</div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col fw-bold">Telephone</div>
+                            <div class="col">{{ employer.telephone }}</div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col fw-bold">Email</div>
+                            <div class="col">{{ employer.email }}</div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col fw-bold">Adresse</div>
+                            <div class="col">{{ employer.adresse }}</div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col fw-bold">Poste</div>
+                            <div class="col">{{ employer.poste }}</div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col fw-bold">Salaire</div>
+                            <div class="col">{{ employer.salaire }}</div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col fw-bold">DateDeNaissance</div>
+                            <div class="col">{{ employer.dateDeNaissance ? employer.dateDeNaissance|date('Y-m-d') : '' }}</div>
+                        </div>
+                    </li>
+                    </ul>
 
-    <a href="{{ path('app_employer_index') }}">back to list</a>
+                </div>
+            </div>                      
+        <div class="m-3 p-3"></div>
+    </div>
 
-    <a href="{{ path('app_employer_edit', {'id': employer.id}) }}">edit</a>
-
-    {{ include('employer/_delete_form.html.twig') }}
+    
 {% endblock %}

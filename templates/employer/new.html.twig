@@ -10,18 +10,11 @@
                     <h1 class="h2">Ajouter un employé</h1>
                 </div>
                 <div class="col-1">
-                    <a href="{{ path('app_employer_index') }}" type="button" class=" btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="liste des employés"><i class="bi bi-list-ul"></i></a>
+                    <a href="{{ path('app_employer_index') }}" type="button" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Allée a la list des employées"><i class="bi bi-list-ul"></i></i></a>
                 </div>
             </div>   
         </div>
     </div>
 
     {{ include('employer/_form.html.twig') }}
-
-    <a href="{{ path('app_employer_index') }}">back to list</a>
-
-
-
-
-
 {% endblock %}
